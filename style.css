@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: inset 0 0 200px 200px #fff;
+}
+.columns {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right,#111 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: .1;
+    z-index: -1;
+}
+
+.columns::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background-image: linear-gradient(to bottom,#111 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -2;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left:0;
+    right: 0;
+}
+
+.logo {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.logo img {
+    display: block;
+    width: 200px;
+}
+
+.banner {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+.banner .product {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    bottom: 170px;
+    left: 50%;
+    transform: translateX(-60%);
+    z-index: 1;
+    transition: 0.7s;
+    --left: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.banner .product .soda {
+    background: 
+    var(--url) var(--left) 0,
+    url(/public/CANNE.png);
+    background-size: auto 100%;
+    width: 280px;
+    aspect-ratio: 10/14;
+    background-blend-mode: multiply;
+    mask-image: url(/public/CANNE.png);
+    mask-size: auto 100%;
+    transition: 0.7s;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-60%);
+}
+.banner .product:hover {
+    --left: -900px;
+    transform: translateX(-60%) translateY(-120px);
+}
+.banner .product:hover .shadow {
+    transition: 0.4s;
+    bottom: -30px;
+    width: 120px;
+    height: 30px;
+    opacity: 0.5;
+    filter: blur(20px);
+}
+.banner .product .soda:nth-child(2) {
+    opacity: 0;
+}
+.banner .product:hover .soda:nth-child(2) {
+    opacity: 1;
+}
+
+.shadow {
+    width: 150px;
+    height: 40px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 70px;
+    left: 56%;
+    transform: translateX(-50%);
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0.8;
+    transition: 0.7s;
+}
